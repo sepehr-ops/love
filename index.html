@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #080008;
+    color: white;
+    font-family: monospace;
+    overflow: hidden;
+}
+
+.heart {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: #ff174f;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite;
+    box-shadow: 0 0 40px #ff174f, 0 0 80px #ff174f;
+    margin-bottom: 100px;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ff174f;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: rotate(-45deg) scale(1.2);
+    }
+}
+
+h1 {
+    color: #ff477e;
+    text-shadow: 0 0 15px #ff174f;
+    margin-top: 20px;
+    text-align: center;
+}
+
+p {
+    margin-top: 20px;
+    color: pink;
+    font-size: 16px;
+    text-align: center;
+}
+
+.floating {
+    position: absolute;
+    bottom: -30px;
+    color: #ff174f;
+    font-size: 25px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="heart"></div>
+
+<h1>&lt; You(Arina) + Me(Sepehr) = Forever /&gt;</h1>
+
+<p>Thank you for being you... ❤️</p>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = "♥️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+    heart.style.fontSize = (15 + Math.random() * 25) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+}
+
+setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
